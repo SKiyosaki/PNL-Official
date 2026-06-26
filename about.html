@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANL关于</title>
+    <link rel="stylesheet" type="text/css" href="CSS/about.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1 class="ANLt"><strong>ANL Official</strong></h1>
+        </div>
+        <div class="dd">
+            <nav>
+                <a class="headdd" href="index.html">主页</a>
+                <a class="headdd" href="book.html">说明</a>
+                <a class="headddy" href="#" onclick="alert('已经是关于页面了！')">关于本站</a>
+            </nav>
+        </div>
+    </header>
+    <hr style="border: none; height:2px; background-color: black; margin: 20px 0; opacity: 26%;">
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+    <div class="jik1">
+        <aside class="sidebar" id="sidebar" role="navigation" aria-label="侧边导航">
+            <div class="sidebar-header">
+                <span class="brand">关于本站</span>
+                <button class="close-btn" id="closeSidebarBtn" aria-label="关闭侧边栏">
+                    <svg viewBox="0 0 24 24">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="sidebar-nav ul1">
+                <li class="li1"><a class="text" href="#join">加入我们</a></li>
+                <li class="li1"><a class="text" href="#about3">组织基本成员</a></li>
+                <li class="li1"><a class="text" href="#about1">网站基本信息</a></li>
+                <li class="li1"><a class="text" href="#about2">参考资料</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h3 class="title_text" id="join">加入我们</h3>
+            <hr style="border: none; height:1px; background-color: black; margin: 20px 0; opacity: 26%;">
+            <p class="text">本组织非常欢迎各位有兴趣的人前来加入，组织的加入没什么要求，只需要您能够在组织内做到文明上网就可以了！</p>
+            <p class="text">当前组织可加群718264436，也可联系2438432710(q)</p>
+            <p class="text">兄弟群：868403384</p>
+
+            <hr style="border: none; height:2px; background-color: black; margin: 20px 0; opacity: 26%;" id="about3">
+            <h3 class="title_text">ANL基本成员(列出QQ名称)</h3>
+            <hr style="border: none; height:1px; background-color: black; margin: 20px 0; opacity: 26%;">
+            <p class="text">清崎Einstein_Official</p>
+            <p class="text">天王星球Uranus</p>
+            <p class="text">HR 26</p>
+            <p class="text">イレーナ</p>
+            <p class="text">请输入文本</p>
+            <p class="text">长江望月</p>
+            <p class="text">一颗水星o0</p>
+            <p class="text">Nerit-salt</p>
+            <p class="text">ꫛꫀ</p>
+
+            <hr style="border: none; height:2px; background-color: black; margin: 20px 0; opacity: 26%;" id="about1">
+            <h3 class="title_text">网站基本信息</h3>
+            <hr style="border: none; height:1px; background-color: black; margin: 20px 0; opacity: 26%;">
+            <p class="text">网站作者：清崎Einstein_Official<a class="text" style="margin-left: 5px;" href="https://space.bilibili.com/3546717544778361?spm_id_from=333.1007.0.0/"><sup><u>[B]</u></sup></a></p>
+            <p class="text">工程开始时间：2026年05月01日</p>
+            <p class="text">网站第一版发布时间：2026年06月26日</p>
+
+            <hr style="border: none; height:2px; background-color: black; margin: 20px 0; opacity: 26%;" id="about2">
+            <h3 class="title_text">参考资料</h3>
+            <hr style="border: none; height:1px; background-color: black; margin: 20px 0; opacity: 26%;">
+            <a class="text" href="https://mtf.wiki/zh-cn/"><u>MtF Wiki</u>（界面设计参考）</a>
+        </main>
+    </div>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="切换侧边栏" aria-expanded="false">
+        <svg viewBox="0 0 24 24">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+    </button>
+    <script>
+        (function() {
+            'use strict';
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const closeBtn = document.getElementById('closeSidebarBtn');
+            const mainContent = document.querySelector('main');
+            const BREAKPOINT = 1024;
+            function isSmallScreen() {
+                return window.innerWidth <= BREAKPOINT;
+            }
+            function openSidebar() {
+                if (!isSmallScreen()) return;
+                sidebar.classList.add('open');
+                overlay.classList.add('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSidebar() {
+                if (!isSmallScreen()) return;
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+            function toggleSidebar() {
+                if (sidebar.classList.contains('open')) {
+                    closeSidebar();
+                } else {
+                    openSidebar();
+                }
+            }
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleSidebar();
+            });
+            closeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeSidebar();
+            });
+            overlay.addEventListener('click', function() {
+                closeSidebar();
+            });
+            mainContent.addEventListener('click', function(e) {
+                if (sidebar.classList.contains('open') && isSmallScreen()) {
+                    closeSidebar();
+                }
+            });
+            sidebar.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            let resizeTimer = null;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    if (!isSmallScreen()) {
+                        sidebar.classList.remove('open');
+                        overlay.classList.remove('active');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                        document.body.style.overflow = '';
+                    } else {
+                        const isOpen = sidebar.classList.contains('open');
+                        if (isOpen) {
+                            overlay.classList.add('active');
+                            hamburgerBtn.setAttribute('aria-expanded', 'true');
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            overlay.classList.remove('active');
+                            hamburgerBtn.setAttribute('aria-expanded', 'false');
+                            document.body.style.overflow = '';
+                        }
+                    }
+                }, 100);
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sidebar.classList.contains('open') && isSmallScreen()) {
+                    closeSidebar();
+                    hamburgerBtn.focus();
+                }
+            });
+            document.addEventListener('click', function(e) {
+                if (!sidebar.classList.contains('open') || !isSmallScreen()) return;
+                const target = e.target;
+                const isSidebar = sidebar.contains(target);
+                const isHamburger = hamburgerBtn.contains(target);
+                const isCloseBtn = closeBtn.contains(target);
+                const isOverlay = overlay.contains(target);
+                if (isSidebar || isHamburger || isCloseBtn || isOverlay) {
+                    return;
+                }
+                closeSidebar();
+            });
+            function init() {
+                if (!isSmallScreen()) {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                } else {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            }
+            init();
+            if (document.readyState === 'complete') {
+                init();
+            } else {
+                window.addEventListener('load', init);
+            }
+            console.log('The responsive sidebar has been applied to About Page');
+        })();
+    </script>
+</body>
+</html>
